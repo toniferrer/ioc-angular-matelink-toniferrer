@@ -13,6 +13,6 @@ export class AppComponent {
   title = 'ioc-angular-matelink-toniferrer';
 
   constructor() {
-    console.log("Abre correctamente" + this.title);
+    console.log("Abre correctamente " + this.title);
   }
 }
