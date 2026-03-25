@@ -1,0 +1,18 @@
+
+<h2>Listado de links</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Enlace</th>
+        <th>Visitas</th>
+        <th>Visible</th>
+    </tr>
+    <tr *ngFor="let links of links">
+        <th>{{links.id}}</th>
+        <th>{{links.titulo}}</th>
+        <th><a href="{{links.enlace}}" target="_blank">{{links.enlace}}</a></th>
+        <th>{{links.visitas}}</th>
+        <th>{{links.visible}}</th>
+    </tr>
+</table>
