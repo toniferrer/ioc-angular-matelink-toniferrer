@@ -1,12 +1,17 @@
 <form class="formulario-buscar" (ngSubmit)="buscar()">
     <div class="contenedor-buscador">
-        <label for="texto">Buscar</label>
-        <input type="text" id="texto" name="texto" placeholder="Buscar..." class="texto" [(ngModel)]="texto">
-        <button type="submit" class="boton-buscar">
+        <label for="texto">Buscar links </label>
+        <input type="text" id="texto" name="texto" placeholder="Buscar..." class="texto" [(ngModel)]="texto" #textoEscrito="ngModel" minlength="3" aria-label="Buscar links" required>
+        <button type="submit" class="boton-buscar" [disabled]="textoEscrito.invalid">
         Buscar
         </button>
-        <button *ngIf="texto" type="button" (click)="borrar()" class="boton-borrar">
+        <button *ngIf="texto" type="button" (click)="borrar()" class="boton-borrar" aria-label="Borrar búsqueda">
         Borrar
         </button>
+    </div>
+    
+    <!-- Mensaje de error  -->
+    <div *ngIf="textoEscrito.invalid && textoEscrito.touched" class="mensaje-error" role="alert">
+        <p>Tienes que escribir mínimo 3 carácteres para poder buscar.</p>
     </div>
 </form>

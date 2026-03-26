@@ -4,3 +4,16 @@ td {
     border-bottom: 1px solid #ddd;
     width: 200px;
 }
+
+a:focus {
+    background-color: white;
+    color: black;
+}
+
+a {
+    color: blueviolet;
+}
+
+a:hover {
+    color: black;
+}

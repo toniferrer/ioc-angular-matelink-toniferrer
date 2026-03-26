@@ -16,7 +16,9 @@ export class BarraCercaComponent {
   texto = '';
 
   buscar(): void {
-    this.cambio.emit(this.texto);
+    if (this.texto.length >= 3) {
+      this.cambio.emit(this.texto);
+    }
   }
 
   borrar(): void {

@@ -2,27 +2,31 @@
   <header>
     <h1>MateLink</h1>
   </header>
-  <app-barra-cerca (cambio)="filtrarLinks($event)"></app-barra-cerca>
 
-  <!-- Estado sin elementos que mostrar en la lista -->
-  <div *ngIf="links.length === 0">
-    <p>No hay ningún Link para enseñar en estos momentos.</p>
-  </div>
+  <nav aria-label="Barra de búsqueda">
+    <app-barra-cerca (cambio)="filtrarLinks($event)"></app-barra-cerca>
+  </nav>
 
-  <!-- Estado sin resultados -->
-  <div *ngIf="linksFiltrados.length === 0 && links.length > 0">
-    <p>No se ha encontrado ningún resultado para la búsqueda <b>{{textoActual}}</b>, prueba de nuevo.</p>
-  </div>
+  <section aria-label="Listado de resultados">
+    <!-- Estado sin elementos que mostrar en la lista -->
+    <div *ngIf="links.length === 0">
+      <p>No hay ningún Link para enseñar en estos momentos.</p>
+    </div>
 
-  <!-- Estado con resultados -->
-  <div *ngIf="linksFiltrados.length > 0 && textoActual">
-    <p>{{linksFiltrados.length}} resultado para la búsqueda <b>{{textoActual}}</b></p>
-    <app-llista-links [links]="linksFiltrados"></app-llista-links>
-  </div>
+    <!-- Estado sin resultados -->
+    <div *ngIf="linksFiltrados.length === 0 && links.length > 0">
+      <p>No se ha encontrado ningún resultado para la búsqueda <b>{{textoActual}}</b>, prueba de nuevo.</p>
+    </div>
 
-  <!-- Estado con elementos iniciales -->
-  <div *ngIf="links.length > 0 && !textoActual">
-    <app-llista-links [links]="linksFiltrados"></app-llista-links>
-  </div>
-  
+    <!-- Estado con resultados -->
+    <div *ngIf="linksFiltrados.length > 0 && textoActual">
+      <p>{{linksFiltrados.length}} resultado para la búsqueda <b>{{textoActual}}</b></p>
+      <app-llista-links [links]="linksFiltrados"></app-llista-links>
+    </div>
+
+    <!-- Estado con elementos iniciales -->
+    <div *ngIf="links.length > 0 && !textoActual">
+      <app-llista-links [links]="linksFiltrados"></app-llista-links>
+    </div>
+  </section>
 </main>
