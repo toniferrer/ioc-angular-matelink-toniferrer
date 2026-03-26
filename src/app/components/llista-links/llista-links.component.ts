@@ -14,4 +14,8 @@ import { TarjetaLinksComponent } from '../tarjeta-links/tarjeta-links.component'
 
 export class LlistaLinksComponent {
   @Input({ required: true }) links: Links[] = [];
+
+  trackById(index: number, link: Links): number {
+    return link.id;
+  }
 }

@@ -2,7 +2,7 @@
 <h2>Listado de links</h2>
 
 <table>
-    <tr *ngFor="let link of links">
+    <tr *ngFor="let link of links; trackBy: trackById">
         <app-tarjeta-links [links]="link">
         </app-tarjeta-links>
     </tr>
