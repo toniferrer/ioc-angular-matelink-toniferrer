@@ -2,6 +2,6 @@
   <header>
     <h1>MateLink</h1>
   </header>
-
-  <app-llista-links [links]="links"></app-llista-links>
+  <app-barra-cerca (cambio)="filtrarLinks($event)"></app-barra-cerca>
+  <app-llista-links [links]="linksFiltrados"></app-llista-links>
 </main>
