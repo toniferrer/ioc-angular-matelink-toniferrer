@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ElementService } from '../../services/element.service';
+import { FormulariCercaComponent } from '../../components/formulari-cerca/formulari-cerca.component';
 
 @Component({
   selector: 'app-cataleg-page',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormulariCercaComponent],
   templateUrl: './cataleg-page.component.html',
   styleUrl: './cataleg-page.component.scss'
 })

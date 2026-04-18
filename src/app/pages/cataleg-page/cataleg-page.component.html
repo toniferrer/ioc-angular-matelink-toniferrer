@@ -1,10 +1,6 @@
-<input
-    type="text"
-    [(ngModel)]="terme"
-    placeholder="Cerca ..."
-    (input)="buscar()"
-/>
 <button (click)="carregaPopulars()">Carregar Populars</button>
+
+<app-formulari-cerca/>
 
 @if (elementService.carregant()) {
     <div class="spinner">

@@ -3,14 +3,17 @@ import { HttpClient } from '@angular/common/http';
 import { ElementApiResponse, ElementCataleg } from '../models/element.model';
 import { environment } from '../../environments/environment';
 import { adaptarElementsApi } from '../adaptadors/element.adaptador';
-import { catchError, map, tap } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { catchError, map} from 'rxjs/operators';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 
 
 @Injectable ({ providedIn: 'root'})
 
 export class ElementService {
   private http = inject(HttpClient);
+
+  private validantSource = new BehaviorSubject<boolean>(false);
+  validant$ = this.validantSource.asObservable();
 
   elements = signal<ElementCataleg[]>([]);
   carregant = signal<boolean>(false);
@@ -59,5 +62,15 @@ export class ElementService {
         },
         error: () => this.carregant.set(false),
       });
+  }
+
+  setValidant(isValidant: boolean) {
+    this.validantSource.next(isValidant);
+  }
+
+  codiDisponible(terme: string): Observable<boolean> {
+    return this.http.get<any[]>(`${environment.apiUrl}/elements?nom_like=${terme}`).pipe(
+      map((resultats) => resultats.length > 0)
+    );
   }
 }
