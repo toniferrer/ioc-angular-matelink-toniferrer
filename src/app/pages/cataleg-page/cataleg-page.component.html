@@ -3,27 +3,32 @@
 <app-formulari-cerca/>
 
 @if (elementService.carregant()) {
-    <div class="spinner">
-        <p>Carregant...</p>
-        <div class="spinner-animation"></div>
-    </div>
+  <div class="spinner">
+      <p>Carregant...</p>
+      <div class="spinner-animation"></div>
+  </div>
 }
 
 @if (elementService.error()) {
-    <div class="error">
-        <p>{{ elementService.error() }}</p>
-        <button (click)="reintentar()">Reintentar</button>
-    </div>
+  <div class="error">
+      <p>{{ elementService.error() }}</p>
+      <button (click)="reintentar()">Reintentar</button>
+  </div>
 }
 
 @if (!elementService.carregant() && !elementService.error()) {
-        <div class="grid">
-          @for (element of elementService.elements(); track element.id) {
-            <div class="card">
-              <h3>{{ element.titol }}</h3>
-              <p>ID: {{ element.id }}</p>
-              <p>{{ element.descripcio }}</p>
-            </div>
-          }
-        </div>
+  <div class="grid">
+    @for (element of elementService.elements(); track element.id) {
+      <div class="card">
+        <h3>{{ element.titol }}</h3>
+        <p>ID: {{ element.id }}</p>
+        <p>{{ element.descripcio }}</p>
+        <button (click)="togglePreferit(element)">
+          {{ esPreferit(element.id) ? 'Eliminar preferit' : 'Marcar com a preferit' }}
+        </button>
+      </div>
+    }
+  </div>
 }
+
+<app-preferits-panel></app-preferits-panel>

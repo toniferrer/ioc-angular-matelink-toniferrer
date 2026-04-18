@@ -1,0 +1,15 @@
+<div class="preferits-panel">
+  <h2>Preferits ({{ preferitsService.totalPreferits() }})</h2>
+  <div class="preferits-list">
+    @for (element of preferitsService.preferits(); track element.id) {
+      <div class="card">
+        <h3>{{ element.titol }}</h3>
+        <p>ID: {{ element.id }}</p>
+        <p>{{ element.descripcio }}</p>
+        <button (click)="togglePreferit(element)">
+          {{ esPreferit(element.id) ? 'Eliminar preferit' : 'Marcar com a preferit' }}
+        </button>
+      </div>
+    }
+  </div>
+</div>
