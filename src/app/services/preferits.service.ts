@@ -42,7 +42,12 @@ afegirPreferit(element: ElementCataleg): void {
     return;
   }
 
-  this.preferitsSignal.update(preferits => [...preferits, element]);
+  const elementAmbNotes: ElementCataleg = {
+    ...element,
+    notes: element.notes ? [...element.notes] : []
+  };
+
+  this.preferitsSignal.update(preferits => [...preferits, elementAmbNotes]);
   this.guardarPreferits();
 }
 
@@ -50,6 +55,27 @@ eliminarPreferit(id: number): void {
   this.preferitsSignal.update(preferits =>
     preferits.filter(p => p.id !== id)
   );
+  
+  this.guardarPreferits();
+}
+
+afegirNota(elementId: number, nota: string): void {
+  this.preferitsSignal.update(preferits =>
+    preferits.map(p =>
+      p.id === elementId ? { ...p, notes: [...(p.notes || []), nota] } : p
+    )
+  );
+
+  this.guardarPreferits();
+}
+
+  eliminarNota(elementId: number, index: number): void {
+  this.preferitsSignal.update(preferits =>
+    preferits.map(p =>
+      p.id === elementId ? { ...p, notes: p.notes?.filter((_, i) => i !== index) } : p
+    )
+  );
+
   this.guardarPreferits();
 }
 

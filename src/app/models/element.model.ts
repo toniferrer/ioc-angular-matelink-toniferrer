@@ -18,4 +18,5 @@ export interface ElementCataleg {
     imatgeUrl: string;
     esPopular: boolean;
     unitats: number;
+    notes?: string [];
 }

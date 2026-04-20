@@ -1,14 +1,27 @@
 <div class="preferits-panel">
   <h2>Preferits ({{ preferitsService.totalPreferits() }})</h2>
   <div class="preferits-list">
-    @for (element of preferitsService.preferits(); track element.id) {
+    @for (preferit of preferitsService.preferits(); track preferit.id) {
       <div class="card">
-        <h3>{{ element.titol }}</h3>
-        <p>ID: {{ element.id }}</p>
-        <p>{{ element.descripcio }}</p>
-        <button (click)="togglePreferit(element)">
-          {{ esPreferit(element.id) ? 'Eliminar preferit' : 'Marcar com a preferit' }}
+        <h3>{{ preferit.titol }}</h3>
+        <p>ID: {{ preferit.id }}</p>
+        <p>{{ preferit.descripcio }}</p>
+        <button (click)="togglePreferit(preferit)">
+          {{ esPreferit(preferit.id) ? 'Eliminar preferit' : 'Marcar com a preferit' }}
         </button>
+        <h4>Notes:</h4>
+        <form [formGroup]="formulari">
+          <div [formArrayName]="preferit.id.toString()">
+            @for (noteControl of getNotesFormArray(preferit.id).controls; track $index; let index = $index) {
+                <input type="text" [formControlName]="index" placeholder="Nota..."  (blur)="guardarNota(preferit.id, index)">
+                <div *ngIf="getErrorMessage(preferit.id, index)">
+                  {{ getErrorMessage(preferit.id, index) }}
+                </div>
+                <button type="button" (click)="eliminarNota(preferit.id, index)">x</button>
+            }
+          </div>
+        </form>
+        <button type="button" (click)="afegirNota(preferit.id)">+</button>
       </div>
     }
   </div>
