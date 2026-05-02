@@ -24,8 +24,9 @@ export class ElementService {
     this.error.set(null);
 
     this.http
-      .get<ElementCataleg[]>('${enviroment.apiUrl}/elements?popular=true')
+      .get<ElementApiResponse[]>(`${environment.apiUrl}/elements?popular=true`)
       .pipe(
+        map(adaptarElementsApi),
         catchError((err) => {
           this.error.set('Error al carregar elements populars.');
           this.carregant.set(false);
