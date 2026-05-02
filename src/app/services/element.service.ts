@@ -74,4 +74,14 @@ export class ElementService {
       map((resultats) => resultats.length > 0)
     );
   }
+
+  obtenirElementPerId(id: number): Observable<ElementCataleg> {
+    console.log('ID:', id);
+    return this.http.get<ElementCataleg>(`${environment.apiUrl}/elements/${id}`).pipe(
+      catchError((err) => {
+        this.error.set('Error al carregar l\'element.');
+        return of({} as ElementCataleg);
+      })
+    );
+  }
 }

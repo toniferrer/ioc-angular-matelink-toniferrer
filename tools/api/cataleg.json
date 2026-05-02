@@ -1,7 +1,7 @@
 {
   "elements": [
     {
-      "id": "elem-001",
+      "id": "1",
       "nom": "Placa Arduino Uno R3",
       "descripcio": "Microcontrolador amb processador ATmega328P",
       "categoria": "Electronics",
@@ -11,7 +11,7 @@
       "stock": 45
     },
     {
-      "id": "elem-002",
+      "id": "2",
       "nom": "Sensor ultrasònic HC-SR04",
       "descripcio": "Sensor de distància per mesura d'obstacles",
       "categoria": "Sensors",
@@ -21,7 +21,7 @@
       "stock": 120
     },
     {
-      "id": "elem-003",
+      "id": "3",
       "nom": "Motor pas a pas NEMA 17",
       "descripcio": "Motor de precisió per projectes de robòtica",
       "categoria": "Motors",
@@ -31,7 +31,7 @@
       "stock": 32
     },
     {
-      "id": "elem-004",
+      "id": "4",
       "nom": "Pantalla LCD 16x2",
       "descripcio": "Pantalla de text amb retroil·luminació blava",
       "categoria": "Displays",
@@ -41,7 +41,7 @@
       "stock": 67
     },
     {
-      "id": "elem-005",
+      "id": "5",
       "nom": "Mòdul Bluetooth HC-05",
       "descripcio": "Comunicació sense fils per Arduino i Raspberry Pi",
       "categoria": "Communication",
