@@ -3,13 +3,15 @@ import { CatalegPage } from './pages/cataleg-page/cataleg-page.component';
 import { FormulariCercaComponent } from './components/formulari-cerca/formulari-cerca.component';
 import { PreferitsPanelComponent } from './components/preferits-panel/preferits-panel.component';
 import { DetallComponent } from './components/detall/detall.component';
+import { LoginComponent } from './pages/login/login.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'cataleg', pathMatch: 'full'},
     {path: 'cataleg', component: CatalegPage, title: 'Catàleg'},
     {path: 'cerca', component: FormulariCercaComponent , title: 'Cerca'},
     {path: 'detall/:id', component: DetallComponent, title: 'Detall'},
-    {path: 'preferits', component: PreferitsPanelComponent, title: 'Preferits'},
-    {path: 'login', component: CatalegPage, title: 'Login'},
+    {path: 'preferits', component: PreferitsPanelComponent, title: 'Preferits', canActivate: [authGuard]},
+    {path: 'login', component: LoginComponent, title: 'Login'},
     { path: '**', redirectTo: 'cataleg' }
 ];

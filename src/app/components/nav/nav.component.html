@@ -10,7 +10,14 @@
       <a routerLink="/preferits" routerLinkActive="active">Preferits</a>
     </li>
     <li>
-      <a routerLink="/login" routerLinkActive="active">Iniciar sesió</a>
+      <div *ngIf="(usuari$ | async) as usuari; else noAutenticat">
+        <span>{{ usuari.nom }}</span>
+        <button (click)="logout()">Tancar sessió</button>
+      </div>
+      <ng-template #noAutenticat>
+        <a routerLink="/login" routerLinkActive="active">Iniciar sessió</a>
+      </ng-template>
     </li>
   </ul>
+  
 </nav>
