@@ -1,27 +1,51 @@
 # IocAngularMatelinkToniferrer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.21.
+## Descripció
+Breu descripció de l'aplicació (ex: "Aplicació de gestió de catàleg d'elements amb autenticació i llistat virtualitzat").
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Mapa de Rutes
+   Path | Component | Accés |
+ |------|-----------|-------|
+ | `/` | Redirecció | Públic |
+ | `/cataleg` | CatalegPage | Públic |
+ | `/cerca` | Cerca | Públic |
+ | `/detall/:id` | Detall | Públic |
+ | `/preferits` | Preferits | Privat (requereix autenticació) |
+ | `/login` | Login | Públic |
+ | `**` | — | Redirigeix a `/cataleg` |
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Instruccions d'Execució en Local
 
-## Build
+1. Clonar el repositori:
+   git clone [url-repositori]
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+2. Navegar al directori del projecte:
+    cd nom-projecte
 
-## Running unit tests
+3. Intal.lar les dependències:
+    npm install
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+4. Iniciar el servidor de desenvolupament:
+    ng serve
 
-## Running end-to-end tests
+5. Obrir el navegador a:
+    http://localhost:4200
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Build de Producció
 
-## Further help
+Per generar el build de producció:
+    ng build --configuration production
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+Mida aproximada del bundle: [Ex: 234.56 kB (Initial Chunk) + 45.67 kB (Lazy Chunk)].
+Els fitxers generats es troben a la carpeta dist/nom-app/browser/.
+
+Credencials de Prova
+Per accedir a la secció protegida (/preferits):
+
+Email: admin@test.com
+Contrasenya: 1234
