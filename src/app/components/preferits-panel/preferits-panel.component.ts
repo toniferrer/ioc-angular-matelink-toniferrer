@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { PreferitsService } from '../../services/preferits.service';
 import { ElementCataleg } from '../../models/element.model';
 import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule} from '@angular/forms';
@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-preferits-panel',
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './preferits-panel.component.html',
   styleUrl: './preferits-panel.component.scss'
 })

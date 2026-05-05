@@ -5,11 +5,12 @@ import { ElementService } from '../../services/element.service';
 import { codiDisponibleValidador } from '../../validadors/codi-disponible.validador';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
+import { LlistatComponent } from '../llistat/llistat.component';
 
 @Component({
   selector: 'app-formulari-cerca',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, LlistatComponent],
   templateUrl: './formulari-cerca.component.html',
   styleUrl: './formulari-cerca.component.scss'
 })

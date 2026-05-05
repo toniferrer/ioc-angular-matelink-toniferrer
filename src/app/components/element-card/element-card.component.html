@@ -1,0 +1,8 @@
+<div class="card">
+    <h3>{{ element.titol }}</h3>
+    <p>ID: {{ element.id }}</p>
+    <p>{{ element.descripcio }}</p>
+    <button (click)="togglePreferit.emit(element)">
+    {{ esPreferit ? 'Eliminar' : 'Marcar a preferit' }}
+    </button>
+</div>
